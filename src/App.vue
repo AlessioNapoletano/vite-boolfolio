@@ -22,9 +22,7 @@ export default {
   <header>
     <AppHeader />
   </header>
-  <main>
-    
-  </main>
+  <router-link ></router-link>
   
 </template>
 
