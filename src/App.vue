@@ -1,11 +1,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import AppMainVue from './components/AppMain.vue';
 
 export default {
   name: 'App',
 
   components: {
     AppHeader,
+    AppMainVue
   },
 
   data() {
@@ -22,7 +24,7 @@ export default {
   <header>
     <AppHeader />
   </header>
-  <router-link ></router-link>
+  <router-view></router-view>
   
 </template>
 

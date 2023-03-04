@@ -25,7 +25,7 @@ export default {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li v-for="page in pages" :key="page.id" class="nav-item me-2" aria-current="page">
-                        <router-link :to="page.path">{{ page.title }}</router-link>
+                        <router-link :to="page.path" :class="(this.$route.name === page.path) ? 'active' : '' ">{{ page.title }}</router-link>
                     </li>
                 </ul>
             </div>
@@ -40,7 +40,15 @@ export default {
         color: white;
 
         &:hover{
-            color: blue;
+            color: red;
         }
+        &:active {
+            color: red;
+        }
+    }
+
+    .router-link-active {
+        color: red;
+        font-weight: bold;
     }
 </style>
