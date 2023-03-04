@@ -4,7 +4,11 @@ export default {
     name: 'AppHeader',
     data() {
         return {
-            navLinks: ['Home', 'Projects', 'About Me']
+            pages: [
+                { id: 1, title: 'Home', path: '/' },
+                { id: 2, title: 'About Me', path: '/about-me' },
+                { id: 3, title: 'Projects', path: '/projects' }
+            ]
         }
     },
 }
@@ -13,15 +17,15 @@ export default {
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BoolFolio</a>
+            <router-link class="navbar-brand" :to="{ name: 'home' }">BoolFolio</router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item" v-for="navLink in navLinks">
-                        <a class="nav-link" aria-current="page">{{ navLink }}</a>
+                    <li v-for="page in pages" :key="page.id" class="nav-item me-2" aria-current="page">
+                        <router-link :to="page.path">{{ page.title }}</router-link>
                     </li>
                 </ul>
             </div>
@@ -30,4 +34,13 @@ export default {
 </template>
 
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+    li a{
+        text-decoration: none;
+        color: white;
+
+        &:hover{
+            color: blue;
+        }
+    }
+</style>
